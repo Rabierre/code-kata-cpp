@@ -24,6 +24,7 @@ bool isUniqueAsciiChars(string chars)
     for(int i=0; i<chars.length(); i++) {
         if(checkTable[chars[i]] != '\0')
             return false;
+        
         checkTable[chars[i]] = true;
     }
     
@@ -49,12 +50,14 @@ bool FindSubstring(string source, string sub) {
             if((source.length() - i) < sub.length())
                 return false;
             if(source[i + sub.length() - 1] != sub[sub.length() - 1])
-                return false;
+                continue;
             
-            // todo sequence compare
+            // sequence compare
+            if(source.substr(i, sub.length()).compare(sub) == 0)
+                return true;
         }
     }
-    return true;
+    return false;
 }
 
 #endif /* defined(__code_kata_cpp__CodingInterview1__) */
