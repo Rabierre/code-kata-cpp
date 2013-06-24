@@ -7,6 +7,8 @@
 #include "CodingInterview7.h"
 #include "OptimizedSwitch.h"
 #include "DivideAndConquer.h"
+#include "Stack.h"
+#include "CodingInterview4.h"
 #include <chrono>
 #include <vector>
 
@@ -16,9 +18,17 @@ int main(int argc, const char * argv[])
     cout<<"SIZE OF BOOL : "<<sizeof(bool)<<endl<<endl;
     
     // todo time, memory 계산
-    // 1.1 문자열에서 문자가 중복되어 포함되어 있는지 검사하기.
-    isUniqueAsciiChars("abcdefghijklmnopqrstuvwxyz")? cout<<"TEST PASS\n" : cout<<"TEST FAIL\n";
-    isUniqueAsciiChars("duplication in here!")? cout<<"TEST FAIL\n" : cout<<"TEST PASS\n"<<endl;
+    // 1.1 문자열에서 문자가 중복되어 포함되어 있는지 검사하기
+    isUniqueAsciiChars("abcdefghijklmnopqrstuvwxyz")? cout<<"isUniqueAsciiChars TEST PASS\n" : cout<<"isUniqueAsciiChars TEST FAIL\n";
+    isUniqueAsciiChars("duplication in here!")? cout<<"isUniqueAsciiChars TEST FAIL\n" : cout<<"isUniqueAsciiChars TEST PASS\n";
+    cout<<endl;
+    
+    // 1.3 한 문자열이 다른 문자열의 sub-set인지 검사하기
+    findSubstring("b", "abc") ? cout<<"findSubstring TEST PASS\n" : cout<<"findSubstring TEST FAIL\n";
+    findSubstring("abc", "abc") ? cout<<"findSubstring TEST PASS\n" : cout<<"findSubstring TEST FAIL\n";
+    findSubstring("abc", "a") ? cout<<"findSubstring TEST FAIL\n" : cout<<"findSubstring TEST PASS\n";
+    findSubstring("abc", "aaa") ? cout<<"findSubstring TEST FAIL\n" : cout<<"findSubstring TEST PASS\n";
+    cout<<endl;
     
     // 임시 변수 없이 두 값 바꾸기
     int first = 254, second = 255;
@@ -40,11 +50,16 @@ int main(int argc, const char * argv[])
     
     int* ptrV = &v[3];
     cout<<"v[3] : " << *ptrV<<endl;
-    
+
+
     auto iterVec = v;                   // iterator의 원소만 삭제, v는 영향받지 않는다..!
     iterVec.erase(iterVec.cbegin());    // vector가 배열 크기를 늘릴 때의 무효화를 테스트하고싶다..
-    
-    cout<<"size : "<<v.size()<<" v[3] : " << *ptrV<<endl<<endl;  // v size 변함없음
+
+    cout<<"after iterator erase size : "<<v.size()<<" v[3] : " << *ptrV<<endl<<endl;  // v size 변함없음
+
+    // main이 종료될 때 deallocate에서 "malloc: *** error for object 0x1001000e0: pointer being freed was not allocated" 에러 발생
+    //v.~vector();
+
     
     // switch문에서의 문자열 반환 최적화
     cout<<"SWITCH STRING OPTIMIZATION : "<<Condition_String(10)<<endl;
@@ -61,8 +76,26 @@ int main(int argc, const char * argv[])
     cout<<"dived and conquer 500! result : "<<DivideAndConquerFactorial(500);
     end = chrono::high_resolution_clock::now();
     cout<<" took : "<<chrono::duration_cast<chrono::nanoseconds>(end - start).count()<<endl;
-    
-    return 0;
-}	
 
-            
+
+    // c++은 파라메터가 하나인 생성자를 암시적 형변환에 사용한다.
+    Stack stack = 20;   // int를 받는 생성자가 묵시적으로 호출된다
+    cout<<"SIZE OF STACK : "<<stack.size()<<endl;
+
+    // DFS binary tree search
+    Node* root = new Node;
+    root->value = 1;
+    root->left = new Node;
+    root->left->value = 2;
+    root->left->left = new Node;
+    root->left->left->value = 3;
+    root->right = new Node;
+    root->right->value = 4;
+    root->right->right = new Node;
+    root->right->right->value = 5;
+
+    recursiveDFSVisit(root); cout<<endl;
+    loopDFSVisit(root);
+
+    return 0;
+}

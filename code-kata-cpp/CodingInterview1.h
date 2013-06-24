@@ -13,6 +13,7 @@ using namespace std;
 
 using namespace std;
 
+// 문제 1.1
 bool isUniqueAsciiChars(string chars)
 {
     if(chars.length() > 256)    // 비둘기 집 원리
@@ -40,8 +41,9 @@ bool isUniqueUnicodeChars(string chars)
     return true;
 }
 
+// 문제 1.3
 // if sub is subset of source then return true or false
-bool FindSubstring(string source, string sub) {
+bool findSubstring(string sub, string source) {
     if(sub.length() > source.length())
         return false;
     
@@ -58,6 +60,20 @@ bool FindSubstring(string source, string sub) {
         }
     }
     return false;
+}
+
+// todo 문제 1.5
+// 문자열 압축하기
+void compressString(string words) {
+    // assume that chars has only ascii codes
+    int countWords[256];
+    memset(countWords, 0, 256);
+    
+    for(int i=0; i<words.length()-1; i++) {
+        countWords[words[i]]++;
+    }
+    
+    // todo print compressed words
 }
 
 #endif /* defined(__code_kata_cpp__CodingInterview1__) */
