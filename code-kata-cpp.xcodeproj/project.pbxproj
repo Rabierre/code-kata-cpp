@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		86A367ED16CF266A00FD38C2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86A367EC16CF266A00FD38C2 /* main.cpp */; };
-		86A367EF16CF266A00FD38C2 /* code_kata_cpp.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 86A367EE16CF266A00FD38C2 /* code_kata_cpp.1 */; };
+		86FD1C7916D10301008F7207 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 86FD1C7616D10301008F7207 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,16 +17,22 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				86A367EF16CF266A00FD38C2 /* code_kata_cpp.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8610FE78177736B8003008B2 /* TrickyCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrickyCode.h; sourceTree = "<group>"; };
+		8610FE8E1778B27A003008B2 /* CodingInterview4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodingInterview4.h; sourceTree = "<group>"; };
+		865161C316DA2A0500C7C2B3 /* CodingInterview7.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodingInterview7.h; sourceTree = "<group>"; };
+		869BDF9416DD17D80095C668 /* DivideAndConquer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DivideAndConquer.h; sourceTree = "<group>"; };
 		86A367E916CF266A00FD38C2 /* code-kata-cpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "code-kata-cpp"; sourceTree = BUILT_PRODUCTS_DIR; };
-		86A367EC16CF266A00FD38C2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		86A367EE16CF266A00FD38C2 /* code_kata_cpp.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = code_kata_cpp.1; sourceTree = "<group>"; };
+		86F5EAB01711D0470090D39F /* Stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		86FD1C7516D10301008F7207 /* code_kata_cpp.1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.man; path = code_kata_cpp.1; sourceTree = "<group>"; };
+		86FD1C7616D10301008F7207 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.xcconfig; };
+		86FD1C7816D10301008F7207 /* CodingInterview1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodingInterview1.h; sourceTree = "<group>"; };
+		86FD1C7C16D2B8D1008F7207 /* OptimizedSwitch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptimizedSwitch.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +49,7 @@
 		86A367E016CF266A00FD38C2 = {
 			isa = PBXGroup;
 			children = (
-				86A367EB16CF266A00FD38C2 /* code-kata-cpp */,
+				86FD1C7416D10301008F7207 /* code-kata-cpp */,
 				86A367EA16CF266A00FD38C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,11 +62,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		86A367EB16CF266A00FD38C2 /* code-kata-cpp */ = {
+		86FD1C7416D10301008F7207 /* code-kata-cpp */ = {
 			isa = PBXGroup;
 			children = (
-				86A367EC16CF266A00FD38C2 /* main.cpp */,
-				86A367EE16CF266A00FD38C2 /* code_kata_cpp.1 */,
+				86FD1C7516D10301008F7207 /* code_kata_cpp.1 */,
+				86FD1C7616D10301008F7207 /* main.cpp */,
+				86FD1C7816D10301008F7207 /* CodingInterview1.h */,
+				8610FE8E1778B27A003008B2 /* CodingInterview4.h */,
+				865161C316DA2A0500C7C2B3 /* CodingInterview7.h */,
+				86FD1C7C16D2B8D1008F7207 /* OptimizedSwitch.h */,
+				869BDF9416DD17D80095C668 /* DivideAndConquer.h */,
+				86F5EAB01711D0470090D39F /* Stack.h */,
+				8610FE78177736B8003008B2 /* TrickyCode.h */,
 			);
 			path = "code-kata-cpp";
 			sourceTree = "<group>";
@@ -117,7 +129,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86A367ED16CF266A00FD38C2 /* main.cpp in Sources */,
+				86FD1C7916D10301008F7207 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +228,7 @@
 				86A367F416CF266A00FD38C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

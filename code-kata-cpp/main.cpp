@@ -80,9 +80,14 @@ int main(int argc, const char * argv[])
 
     // c++은 파라메터가 하나인 생성자를 암시적 형변환에 사용한다.
     Stack stack = 20;   // int를 받는 생성자가 묵시적으로 호출된다
-    cout<<"SIZE OF STACK : "<<stack.size()<<endl;
+    cout<<"SIZE OF STACK : "<<stack.size()<<endl<<endl;
 
     // DFS binary tree search
+    //     1
+    //    / \
+    //   2   4
+    //  /     \
+    // 3       5
     Node* root = new Node;
     root->value = 1;
     root->left = new Node;
@@ -94,8 +99,11 @@ int main(int argc, const char * argv[])
     root->right->right = new Node;
     root->right->right->value = 5;
 
-    recursiveDFSVisit(root); cout<<endl;
-    loopDFSVisit(root);
+    cout<<"recursive DFS : ";   recursiveDFS(root); cout<< endl;
+    cout<<"loop DFS : ";        loopDFS(root);      cout<< endl;
+
+    cout<<"recursive BFS : ";   recursiveBFS(root);  cout<<endl;
+    cout<<"loop BFS : ";        loopBFS(root);      cout<<endl;
 
     return 0;
 }

@@ -10,6 +10,7 @@
 #define code_kata_cpp_CodingInterview4_h
 
 #include <stack>
+#include <queue>
 
 struct Node {
     int value;
@@ -17,35 +18,68 @@ struct Node {
     Node* right;
 };
 
-void recursiveDFSVisit(Node* root) {
-    if(root == NULL)
+void print(Node* node) {
+    if(node == NULL)
         return;
     
-    cout<<root->value;
-    
-    recursiveDFSVisit(root->left);
-    recursiveDFSVisit(root->right);
+    cout<<node->value;
 }
 
-void loopDFSVisit(Node* root) {
+void recursiveDFS(Node* root) {
     if(root == NULL)
         return;
     
-    std::stack<Node*> nodes;
+    print(root);
+    
+    recursiveDFS(root->left);
+    recursiveDFS(root->right);
+}
+
+void loopDFS(Node* root) {
+    std::stack<Node*> children;
+    
+    if(root == NULL)
+        return;
     
     while (true) {
-        if(root == NULL && nodes.empty())
+        if(root == NULL && children.empty())
             return;
         
         if(root != NULL) {
-            cout<<root->value;
-            nodes.push(root->right);
+            print(root);
+            children.push(root->right);
             root = root->left;
         }
         else {
-            root = nodes.top();
-            nodes.pop();
+            root = children.top();
+            children.pop();
         }
+    }
+}
+
+void recursiveBFS(Node* root) {
+    if(root == NULL)
+        return;
+    print(root);
+    
+    
+}
+
+void loopBFS(Node* root) {
+    std::queue<Node*> children;
+    
+    while(true) {
+        if(root == NULL && children.empty())
+            return;
+        
+        if(root != NULL){
+            print(root);
+            children.push(root->left);
+            children.push(root->right);
+        }
+        
+        root = children.front();
+        children.pop();
     }
 }
 
