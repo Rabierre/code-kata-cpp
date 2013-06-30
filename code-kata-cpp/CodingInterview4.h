@@ -47,6 +47,7 @@ void loopDFS(Node* root) {
         
         if(root != NULL) {
             print(root);
+            
             children.push(root->right);
             root = root->left;
         }
@@ -57,12 +58,21 @@ void loopDFS(Node* root) {
     }
 }
 
-void recursiveBFS(Node* root) {
-    if(root == NULL)
+void recursiveBFS(queue<Node*> q) {
+    if(q.empty()){
         return;
-    print(root);
+    }
     
+    Node* node = q.front();
+    if(node != NULL) {
+        print(node);
     
+        q.push(node->left);
+        q.push(node->right);
+    }
+    q.pop();
+
+    recursiveBFS(q);
 }
 
 void loopBFS(Node* root) {
@@ -74,6 +84,7 @@ void loopBFS(Node* root) {
         
         if(root != NULL){
             print(root);
+            
             children.push(root->left);
             children.push(root->right);
         }
