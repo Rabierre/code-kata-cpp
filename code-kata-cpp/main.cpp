@@ -85,8 +85,8 @@ int main(int argc, const char * argv[]) {
     //     1
     //    / \
     //   2   4
-    //  /     \
-    // 3       5
+    //  / \ / \
+    // 3  N N  5
     Node* root = new Node;
     root->value = 1;
     root->left = new Node;
