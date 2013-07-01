@@ -75,6 +75,12 @@ void recursiveBFS(queue<Node*> q) {
     recursiveBFS(q);
 }
 
+void recursiveBFS(Node* root) {
+    queue<Node*> q;
+    q.push(root);
+    recursiveBFS(q);
+}
+
 void loopBFS(Node* root) {
     std::queue<Node*> children;
     
